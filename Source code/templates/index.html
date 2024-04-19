@@ -1,0 +1,1147 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <link rel="stylesheet" href="style.css">
+    <script src="script.js"></script>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta property="og:site_name" content="View Arun's Portfolio Website">
+    <meta property="og:title" content="Developer | Arun" />
+    <meta property="og:description"
+        content="Hello there 👋🏻,My name is Arun Kumar S. I am an Information Technology student  👨🏻‍💻📚I am eager to hear about potential career opportunities, so I would be pleased to chat about job openings in the engineering sphere.Send 'help' to know more about me." />
+    <meta property="og:type" content="website" />
+
+    <meta property="og:type" content="website" />
+    <meta property="og:image:type" content="image/jpeg">
+
+    <link rel="icon" type="image/png" href="images/favicon.ico" />
+    <meta property="og:image:width" content="300">
+    <meta property="og:image:height" content="300">
+    <meta property="og:updated_time" content="1440432930" />
+
+    <title>Code Generator</title>
+    <style>
+        *{
+            padding: 0;
+            margin: 0;
+            font-family: Verdana, Tahoma, sans-serif;
+        }
+        
+        body{
+            padding-top: 1vh;
+            background-color: #1b1b1b;
+            background-size: unset;
+            background-repeat: repeat;
+            background-image:url('https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQq2bv2wKAky-YTtLASWkLd6ZjKJHP8_GEnFw&usqp=CAU');
+            height: 98vh;
+        }
+        
+        nav{
+            display: flex;
+            height: 6%;
+            background-color: #202c33;
+        }
+        
+        .navbar{
+            width: 100%;
+            display: flex;
+        }
+        
+        
+        .dpimg{
+            cursor: pointer;
+            border-radius: 100%;
+            width: 15%;
+            height: 15%;
+            height: auto;
+            margin: auto 0px;
+            margin-left: 10px;
+        }
+        
+        .navbar .personalInfo{
+            line-height: 100%;
+            display: flex;
+            flex-direction: column;
+            margin: auto 0px;
+            margin-left: 2%;
+        }
+        
+        .personalInfo #name{
+            color: #e9edef;
+            margin-bottom: 4px;
+        }
+        
+        .personalInfo #lastseen{
+            color: #8696a0;
+            font-size: small;
+        }
+        
+        
+        .scrollable{
+            overflow-y: scroll;
+            color: #fff;
+            display: flex;
+            height: 88%;
+            flex-direction: column;
+            background-image: url('images/bg2.jpg');
+            align-items: flex-end;
+            position: relative;
+            -ms-overflow-style: none; 
+            scrollbar-width: none; 
+            position: relative;
+        }
+        
+        .scrollable .chatting{
+            overflow-y: scroll;
+            -ms-overflow-style: none; 
+            scrollbar-width:none; 
+            position: relative;
+            height: 100%;
+            width: 100%;
+            background-image:url('https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQjYOy0uXgawCBFDFJGqlbkIc2kSsbdUjnTlA&usqp=CAU');
+            background-image:no-repeat;
+        }
+        
+        .scrollable .chatting::-webkit-scrollbar {
+            display: none;
+          }
+        
+        #listUL{
+            overflow-y: hidden;
+            position: static;
+            width: 100%;
+            bottom: 0;
+            list-style-type: none;
+            display: flex;
+            flex-direction: column;
+        }
+        
+        #listUL li{
+            width: 100%;
+            text-decoration: none;
+            flex-direction: row-reverse;
+        }
+        
+        .sent{
+            text-align: end;
+            float: right;
+            width: auto;
+            max-width: 45%;
+        }
+        
+        .green{
+            margin: 5px;
+            text-align: start;
+            width: auto;
+            padding: 10px;
+            background-color: #005c4b;
+            border-radius: 15px 15px 0px;
+        }
+        
+        #sentlabel{
+            color: #94bab3;
+            display: block;
+            text-align: end;
+            font-size: x-small;
+        }
+        
+        .recieved{
+            float: left;
+            width: 45%;
+            max-width: 45%;
+            background-color: red;
+        
+        }
+        
+        
+        .grey{
+            max-width: 60%;
+            margin: 5px;
+            text-align: start;
+            width: auto;
+            padding: 10px;
+            background-color: red;
+            border-radius: 0px 15px 15px;
+            color: white;
+        }
+        
+        .grey .mapview{
+            margin: auto;
+            display: flex;
+            padding: 5px;
+        }
+        
+        .add address{
+            margin-top: 10px;
+            padding-left: 15px;
+        }
+        
+        .map{
+            margin: auto;
+            width: 100%;
+            border-radius: 10px;
+        }
+        
+        .dateLabel{
+            color: #94bab3;
+            display: block;
+            text-align: end;
+            font-size: x-small;
+        }
+        
+        
+        /* help menu bold words color  */
+        
+        .sk .bold{
+            color: rgba(219, 154, 33, 0.822);
+        }
+        
+        
+        /* resume thumbnail in received class*/
+        .resumeThumbnail{
+            width: 100%;
+            border-radius: 10px 10px 0px 0px;
+        }
+        
+        .downloadSpace{
+            background-color: #1d282f;
+            display: flex;
+            width: 100%;
+        }
+        .downloadSpace .pdfname{
+            display: flex;
+            width: 100%;
+        }
+        .pdfname label{
+            margin: auto 0px;
+        }
+        .downloadSpace img{
+            width: 30px;
+            cursor: pointer;
+            margin: 5px;
+        }
+        
+        /* this css is used for embedded html in messages */
+        .bold{
+            font-weight: bold;
+        }
+        
+        .alink{
+            color: goldenrod;
+            transition: all 600ms ease;
+            text-decoration: none;
+        }
+        
+        .alink:hover{
+            text-decoration: none;
+            color: green;
+        }
+        
+        /* this css is used for social links message */
+        
+        .social{
+            padding: 10px;
+        }
+        
+        .social .socialItem{
+            width: 100%;
+            border-radius: 10px;
+            background-color: #94bab3;
+            cursor: pointer;
+            display: flex;
+            margin-bottom: 10px;
+            transition: all 500ms ease-in-out;
+        }
+        
+        .social .socialItemI{
+            margin: auto;
+            padding: 10px;
+            flex-direction: column;
+        }
+        
+        .social .socialItem:hover{
+            background-color: rgba(58, 170, 58, 0.863);
+        }
+        #call{
+            flex-direction: column;
+            text-align: center;
+        }
+        
+        .number{
+            display: none;
+        }
+        
+        
+        
+        
+        .scrollable .fullScreenDP{
+            transition: all 700ms ease-in-out;
+            position: absolute;;
+            width: 100%;
+            height: 100%;
+            display: none;
+            flex-direction: column;
+            background-color: #2f2f2fec;
+            z-index: 1000;
+        }
+        
+        .scrollable .fullScreenDP .insideDP{
+            display: flex;
+            margin: auto;
+            scrollbar-width: 0px;
+        }
+        
+        .closeBTN{
+            width: 30px;
+            height: 30px;
+            display: block;
+            position: absolute;
+            margin-left: 6%;
+            margin-top: 5px;
+            cursor: pointer;
+            
+        }
+        
+        .btnColor{
+            fill: rgba(0, 0, 0, 0.692);
+            transition: all 400ms ease-in-out;
+        }
+        
+        .closeBTN:hover .btnColor{
+            fill: red;
+        }
+        
+        
+        
+        .scrollable .fullScreenDP .insideDP .dp{
+            width: 90%;
+            margin: auto;
+            border-radius: 10px;
+        }
+        
+        
+        
+        
+        
+        
+        
+        footer{
+            position: relative;
+            left: 0;
+            bottom: 0;
+            width: 100%;
+            color: white;
+            text-align: center;
+            height: auto;
+            background-color: #202c33;
+            text-align: center;
+        }
+        
+        .sendBar{
+            display: flex;
+            height: 100%;
+            width: 100%;
+            margin: auto;
+        }
+        .sendBar svg{
+            margin: auto;
+            height: 40%;
+            min-height: 40%;
+        
+        }
+        
+        .sendBar input[type='text']{
+            margin: auto;
+            margin: 5px;
+            border-radius: 10px;
+            padding: 10px;
+            color: #fff;
+            float: left;
+            width: 80%;
+            height: 100%;
+            outline-color: transparent;
+            accent-color: transparent;
+            background-color: #2a3942;
+            outline: none;
+            border-color: transparent;
+        }
+        
+        
+        ::placeholder { 
+            color: #8696a0;
+            opacity: 1; 
+          }
+          
+          :-ms-input-placeholder { 
+            color: #8696a0;
+          }
+          
+          ::-ms-input-placeholder { 
+            color: #8696a0;
+          }
+        
+        
+        
+        @media screen and (min-width: 1024px) {
+        
+            body{
+                margin: auto;
+                width: 50vw;
+            }
+        
+            .sendBar{
+                width: 85%;
+            }
+        
+            .scrollable{
+                -ms-overflow-style: none; 
+                scrollbar-width: none; 
+                position: relative;
+                overflow: hidden;
+            }
+        
+            
+        
+            .scrollable .fullScreenDP{
+                display: none;
+                width: 100%;
+                height: 100%;
+                overflow-y: scroll;
+            }
+        
+        
+            .scrollable .fullScreenDP .insideDP{
+                display: flex;
+                width: 70%;
+            }
+        
+        
+            .scrollable .fullScreenDP .dp{
+                width: 50%;
+                margin: auto;
+            }
+        
+            .scrollable .closeBTN{
+                margin-top: 15px;
+            }
+        
+            #call:hover .number{
+                display: block;
+                height: auto;
+            }
+        }
+    </style>
+
+</head>
+
+<body onload="startFunction()">
+
+  
+
+    <nav>
+
+        <div class="navbar">
+            <img class="dpimg" onclick="openFullScreenDP()" src="./static/bg.jpeg" alt="" height:"40px" width:"40px">
+            <div class="personalInfo">
+                <label id="name">MEDICAL ASSISTANT..!!!</label>
+                <label id="lastseen">Am ready to help for you..!!</label>
+            </div>
+        </div>
+
+    </nav>
+
+
+    <div class="scrollable" id="myScrollable" >
+
+        <div class="fullScreenDP" id="fullScreenDP">
+            <div class="insideDP">
+                <img class="dp"  onclick="openFullScreenDP()" src="images/varshi1.jpg" alt="">
+                <svg class="closeBTN" onclick="closeFullDP()" xmlns="http://www.w3.org/2000/svg" width="64px"
+                    viewBox="0 0 512 512" height="64px">
+                    <path class="btnColor" fill="#E04F5F"
+                        d="M504.1,256C504.1,119,393,7.9,256,7.9C119,7.9,7.9,119,7.9,256C7.9,393,119,504.1,256,504.1C393,504.1,504.1,393,504.1,256z" />
+                    <path fill="#FFF"
+                        d="M285,256l72.5-84.2c7.9-9.2,6.9-23-2.3-31c-9.2-7.9-23-6.9-30.9,2.3L256,222.4l-68.2-79.2c-7.9-9.2-21.8-10.2-31-2.3c-9.2,7.9-10.2,21.8-2.3,31L227,256l-72.5,84.2c-7.9,9.2-6.9,23,2.3,31c4.1,3.6,9.2,5.3,14.3,5.3c6.2,0,12.3-2.6,16.6-7.6l68.2-79.2l68.2,79.2c4.3,5,10.5,7.6,16.6,7.6c5.1,0,10.2-1.7,14.3-5.3c9.2-7.9,10.2-21.8,2.3-31L285,256z" />
+                </svg>
+            </div>
+        </div>
+
+        <div id="chatting" class="chatting">
+            <ul id="listUL">
+            </ul>
+        </div>
+    </div>
+
+
+    <footer>
+        <div class="sendBar">
+            <input id="inputMSG" onkeypress="isEnter(event)" type="text" placeholder="Type a message" autofocus>
+            <svg onclick="sendMsg()" viewBox="0 0 24 24" width="24" height="24" class="">
+                <path fill="currentColor"
+                    d="M1.101 21.757 23.8 12.028 1.101 2.3l.011 7.912 13.623 1.816-13.623 1.817-.011 7.912z"></path>
+            </svg>
+        </div>
+    </footer>
+<script>
+    var audio = new Audio('assets/sentmessage.mp3');
+    var contactString = "<div class='social'> <a target='_blank' href='tel:+919677246151'> <div class='socialItem' id='call'><img class='socialItemI' src='images/phone.svg'/><label class='number'></label></label></div> </a> <a href='mailto:0404arun@gmail.com'> <div class='socialItem'><img class='socialItemI' src='images/gmail.svg' alt=''></div> </a> <a target='_blank' href='https://github.com/arun0404'> <div class='socialItem'><img class='socialItemI' src='images/github.svg' alt=''></div> </a> <a target='_blank' href='https://wa.me/919677246151'> <div class='socialItem'><img class='socialItemI' src='images/whatsapp.svg' alt=''>";
+    var resumeString = "<img src='images/Luffy.jpg' class='resumeThumbnail'><div class='downloadSpace'><div class='pdfname'><img src='images/pdf.png'><label>Arun Kumar S Resume.pdf</label></div><a href='assets/arun_kumar_resume.pdf' download='arun_kumar_resume.pdf'><img class='download' src='images/downloadIcon.svg'></a></div>";
+    var addressString = "<div class='mapview'><iframe src='https://www.google.com/maps/dir//Moodbidri+private+Bus+Stand,+Bus+Stand+Rd,+Mudbidri,+Karnataka+574227/@13.0639,74.9991985,15z/data=!4m8!4m7!1m0!1m5!1m1!1s0x3ba4ab3d49331379:0x17be05cb5b69caa2!2m2!1d74.9957298!2d13.0680955?hl=en' class='map'></iframe></div><label class='add'><address>B2 'Asara'<br>Kodoli<br>Kolhapur, Maharashtra, INDIA 416114</address>";
+    
+    function startFunction() {
+        setLastSeen();
+        waitAndResponce("intro");
+    }
+    
+    function setLastSeen() {
+        var date = new Date();
+        var lastSeen = document.getElementById("lastseen");
+        lastSeen.innerText = "last seen today at " + date.getHours() + ":" + date.getMinutes()
+    }
+    
+    
+    function closeFullDP() {
+        var x = document.getElementById("fullScreenDP");
+        if (x.style.display === 'flex') {
+            x.style.display = 'none';
+        } else {
+            x.style.display = 'flex';
+        }
+    }
+    
+    function openFullScreenDP() {
+        var x = document.getElementById("fullScreenDP");
+        if (x.style.display === 'flex') {
+            x.style.display = 'none';
+        } else {
+            x.style.display = 'flex';
+        }
+    }
+    
+    
+    function isEnter(event) {
+        if (event.keyCode == 13) {
+            sendMsg();
+        }
+    }
+    
+    function sendMsg() {
+        var input = document.getElementById("inputMSG");
+        var ti = input.value;
+        if (input.value == "") {
+            return;
+        }
+        var date = new Date();
+        var myLI = document.createElement("li");
+        var myDiv = document.createElement("div");
+        var greendiv = document.createElement("div");
+        var dateLabel = document.createElement("label");
+        dateLabel.innerText = date.getHours() + ":" + date.getMinutes();
+        myDiv.setAttribute("class", "sent");
+        greendiv.setAttribute("class", "green");
+        dateLabel.setAttribute("class", "dateLabel");
+        greendiv.innerText = input.value;
+        myDiv.appendChild(greendiv);
+        myLI.appendChild(myDiv);
+        greendiv.appendChild(dateLabel);
+        document.getElementById("listUL").appendChild(myLI);
+        var s = document.getElementById("chatting");
+        s.scrollTop = s.scrollHeight;
+        setTimeout(function () { waitAndResponce(ti) }, 1500);
+        input.value = "";
+        playSound();
+    }
+    
+    function waitAndResponce(inputText) {
+        var lastSeen = document.getElementById("lastseen");
+        lastSeen.innerText = "typing...";
+        var name="";
+        if(inputText.toLowerCase().includes("my name is")){
+            name=inputText.substring(inputText.indexOf("is")+2);
+            if(name.toLowerCase().includes("arun")){
+                sendTextMessage("Oh! That's my name too ");    
+            }
+            inputText="input";
+        }
+        switch (inputText.toLowerCase().trim()) {
+            case "tell about you":
+            case "tell about yourself":
+            case "intro":
+                setTimeout(() => {
+                    sendTextMessage("Hello there 👋🏻,<br><br>My name is <span class='bold'><a class='alink'>MEDIBOT</a>.</span><br><br>I am your Medical Assistant..<span class='bold'>MEDIBOT..👨🏻‍💻📚</span><br><br>Send <span class='bold'>'help'</span> to know more about me.<br>");
+                }, 2000);
+                break;
+            case "hi":
+                sendTextMessage("Hello buddy!");
+                setTimeout(() => {
+                    sendTextMessage("How can i assist you?😊");
+                }, 1000);
+                break;
+            case "hii":
+                sendTextMessage("Hello buddy!");
+                setTimeout(() => {
+                    sendTextMessage("How can i assist you?😊");
+                }, 1000);
+                break;    
+            case "hello":
+                sendTextMessage("Hi...! How are you...?");
+                break;
+            case "im fine":     
+            case "i am fine":
+            case "i'm fine":
+            case "good":
+            case "im good":
+            case "i'm good":
+            case "i am good":    
+            case "fine":
+                sendTextMessage("Happy to hear that you're fine😊");
+                break;
+                
+                
+
+            case "hey":
+                sendTextMessage("Hello...! How are you...?");    
+            case "bye":
+                sendTextMessage("Thank You..   Bye...!");
+                break;
+            case "good morning":
+                sendTextMessage("Good morning! 🌞");    
+                setTimeout(() => {
+                    sendTextMessage("How can i help you?");
+                }, 1000);
+                break;
+            case "good afternoon":
+                sendTextMessage("Good afternoon! ");    
+                setTimeout(() => {
+                    sendTextMessage("How can i assist you?😊");
+                }, 1000);
+                break;    
+    
+            case "help":
+                sendTextMessage("<span class='sk'>Send Keyword to get what you want to know .... <br>e.g<br><span class='bold'>'Hypertension'</span> - to know about hypertension<br><span class='bold'>'Diabetes'</span> - to know about diabetes<br><span class='bold'>'Asthma'</span> - to know about asthma<br><span class='bold'>'Celiac'</span> - to know about celiac<br><span class='bold'>'Osteoporosis'</span> - to get details about osteoporosis<br><span class='bold'>'Obesity'</span> - to Know about the obesity<br><span class='bold'>'CKD'</span> - to Know about the Chronic Kidney disease(CKD)<br><span class='bold'>'Heart failure'</span> - to know about heart failure<br><span class='bold'>'Stroke'</span> - to know about stroke<br><span class='bold'>'RA'</span> - to know about Rheumatoid Arthritis (RA)<br><span class='bold'>'Cold'</span>- to Know about the Common cold.<br><span class='bold'>'Acid Reflux'</span> - to know about Gastroesophageal Reflux Disease.<br><span class='bold'>'Sinus'</span> - to know about Sinusitis.<br><span class='bold'>'Athlete foot'</span> - to know about Athlete's Foot<br><span class='bold'>'Insomnia'</span> - to know about Insomnia<br><span class='bold'>'migraine'</span> - to know about migraine<br><span class='bold'>'clear'</span> - to clear the chatbot<br>");
+                break;
+            
+            case "adr":
+                sendTextMessage("An Adverse Drug Reaction (ADR) is any harmful, unintended or unwanted effect of a medication or drug that occurs at doses normally used for treatment, diagnosis, or prevention of diseases. ADRs can range from mild side effects such as dizziness or nausea to severe or life-threatening reactions like anaphylaxis. ADRs are a significant concern in healthcare and are closely monitored by healthcare professionals to ensure that medications are used safely and effectively.");
+                break;
+            case "fever":
+                sendTextMessage("Fever or pyrexia in humans is defined as having a body temperature above the normal range due to an increase in the body's temperature set point in the hypothalamus. There is no single agreed-upon upper limit for normal temperature: sources use values ranging between 37.2 and 38.3 °C (99.0 and 100.9 °F) in humans.<br><br>To consult a doctor <br><a href='https://www.practo.com/india' target='_blank' rel='noopener noreferrer'>https://www.practo.com/india</a> ");
+                break;
+            case "headache":
+                sendTextMessage("A doctor may recommend therapy or medication to provide relief for your symptoms. These may include: 1. oxygen therapy 2. sumatriptan(Imitrex) 3. local anesthetic(lidocaine) After diagnosis, a doctor will work with you to develop a prevention plan.<br><br>To consult a doctor <br><a href='https://www.practo.com/india' target='_blank' rel='noopener noreferrer'>https://www.practo.com/india</a>");
+                break;
+            case "cuts":
+                sendTextMessage("Wash the cut properly to prevent infection and stop the bleeding by applying pressure for 1-2minutes until bleeding stops. Apply Petroleum Jelly to make sure that the wound is moist for quick healing. Finally cover the cut with a sterile bandage. Pain relievers such as acetaminophen can be applied.")
+                break;
+            case "abrasions":
+                sendTextMessage("Begin with washed hands.Gently clean the area with cool to lukewarm water and mild soap. Remove dirt or other particles from the wound using sterilized tweezers.For a mild scrape that’s not bleeding, leave the wound uncovered.If the wound is bleeding, use a clean cloth or bandage, and apply gentle pressure to the area to stop any bleeding.Cover a wound that bled with a thin layer of topical antibiotic ointment, like Bacitracin, or a sterile moisture barrier ointment, like Aquaphor. Cover it with a clean bandage or gauze. Gently clean the wound and change the ointment and bandage once per day.Watch the area for signs of infection, like pain or redness and swelling. See your doctor if you suspect infection.");
+                break;
+            case "strain":
+                sendTextMessage("Rest,Ice,Compression and Elevation can be used to cure strains. Avoid using your muscle for a few days, especially if movement causes an increase in pain and also Apply ice immediately after injuring your muscle. This will minimize swelling. Don’t put ice directly on your skin. Use an ice pack or wrap ice in a towel. To reduce swelling, wrap the affected area with an elastic bandage until swelling comes down.")
+                break;
+            case "congestion":
+                sendTextMessage("When you’re stuffed up, focus on keeping your nasal passages and sinuses moist. To keep your nasal passages moist, you can: 1)Use a humidifier or vaporizer. 2)Drink lots of fluids. This will thin out your mucus, which could help prevent blocked sinuses. 3)Place a warm, wet towel on your face. It may relieve discomfort and open your nasal passages.");
+                break;
+            case "cough":
+                sendTextMessage("1) Honey:- Use honey to treat a cough, mix 2 teaspoons (tsp) with warm water or an herbal tea. Drink this mixture once or twice a day. Do not give honey to children under 1 year of age. 2) Ginger:- Brew up a soothing ginger tea by adding 20–40 grams (g) of fresh ginger slices to a cup of hot water. Allow to steep for a few minutes before drinking. Add honey or lemon juice to improve the taste and further soothe a cough. 3) Fluids:- Staying hydrated is vital for those with a cough or cold. Research indicates that drinking liquids at room temperature can alleviate a cough, runny nose, and sneezing.    ");
+                break;
+            case "throatpain":
+                sendTextMessage("1) Make sure you get plenty of rest and drink a lot of fluids. 2)Inhale steam,Run hot water in a sink.Drape a towel over you to trap the steam, and have the person lean over the sink with the water running. Tell him to breathe deeply through his mouth and nose for 5 to 10 minutes. Repeat several times a day. 3)Have him sip chicken broth or warm tea with honey. Don’t give honey to a child under 12 months of age.");
+                break;
+            case "skin allergy":    
+            case "skinallergy":
+            case "i have skin allergy":
+                sendTextMessage("<span class='bold'>Skin Allergy </span>(Minor)<br><br><span class='bold'>Description: </span><br> Rashes can be caused by many things, including exposure to certain plants (poison ivy, for example), allergic reactions to a medication or a food. Rashes can also be caused by an illness such as measles or chickenpox. Eczema and hives, both of which are related to allergies, are two of the most common types of skin rashes.<br><br><span class='bold'>Symptoms: </span><br>Sneezing, runny nose, red, watering eyes, vomiting, diarrhea, rashes, and itching. <br>");
+                setTimeout(() => {
+                    sendTextMessage("<span class='bold'>Doctor Recommendation: </span><br><br>You can utilize the link below to consult a doctor for skin allergy <br><a href='https://www.practo.com/chennai/doctor/dr-sindhu-raagavi-dermatologist-cosmetologist?practice_id=696617&specialization=Skin%20allergy&referrer=doctor_listing&page_uid=afe59d7b-315a-4584-9c77-68d41b76cd18&category_name=symptom&category_id=1256' target='_blank' rel='noopener noreferrer'>https://www.practo.com/india</a><br>");
+                }, 1000);
+                setTimeout(() => {
+                    sendTextMessage("<span class='bold'> Nutrition Tips: </span><br><br>Focus on whole foods rich in vitamins, minerals, and antioxidants, such as fruits, vegetables, whole grains, and legumes. <br><br>would you like to have a meal plan?<br><br>Example: give <span class='bold'>*Disease name*</span> meal plan <br>");
+                }, 2000);
+                break;
+            case "give skinallergy meal plan":
+            case "give skin allergy meal plan":
+            case "skin allergy meal plan":
+            case "skinallergy meal plan":
+            case "can you give skin allergy meal plan":
+            case "can you give me skin allergy meal plan":
+                sendTextMessage("<span class='bold'>Skin Allergy Meal Plan: </span><br><br><span class='bold'>- Breakfast: </span>Quinoa Breakfast Bowl with fruit and nuts.  <br><span class='bold'>- Lunch: </span>Vegan Chickpea Salad Sandwich on whole grain bread with lettuce. <br><span class='bold'>- Snacks: </span>Apple slices with almond butter. <br><span class='bold'>- Dinner: </span>Vegetable Stir-Fry with Tofu served over brown rice or quinoa. <br><br>");
+                break;
+            case "hypertension":
+            case "i have hypertension":
+            case "tell me about hypertension":
+            case "what is hypertension":
+                sendTextMessage("<span class='bold'>Hypertension</span>(Major)<br><br><span class='bold'>Description: </span><br> High blood pressure, a condition where the force of the blood against the artery walls is consistently too high.<br><br><span class='bold'>Symptoms: </span><br> Often asymptomatic, but can include headaches, shortness of breath, nosebleeds, and dizziness.<br>")    
+                setTimeout(() => {
+                    sendTextMessage("<span class='bold'>Nutritional Tips:</span><br><br> Limit sodium intake, increase potassium-rich foods, maintain a healthy weight, and reduce alcohol consumption. Incorporate omega-3 fatty acids from sources like flaxseeds, chia seeds, and fatty fish to help reduce inflammation and support skin health.<br><br> would you like to have a meal plan?<br><br>Example: give <span class='bold'>*Disease name*</span> meal plan");
+                }, 2000);
+                setTimeout(() => {
+                    sendTextMessage("<span class='bold'>Doctor Recommendation: </span><br><br>You can utilize the link below to consult a doctor for hypertension.<br><a href='https://www.practo.com/chennai/doctor/harikrishnan-parthasarathy-cardiologist?practice_id=1129485&specialization=Hypertension&referrer=doctor_listing&page_uid=7ddcdb8f-23eb-419d-85d6-cc54f4492fd3&category_name=symptom&category_id=153' target='_blank' rel='noopener noreferrer'>https://www.practo.com/india</a><br>");
+                }, 1000);
+                break;
+            case "hypertension meal plan":    
+            case "give hypertension meal plan":
+            case "give me hypertension meal plan":
+                sendTextMessage("<span class='bold'>Hypertension Meal Plan: </span><br><br><span class='bold'>- Breakfast: </span>Oatmeal with sliced bananas and almonds, whole grain toast with avocado.<br><span class='bold'>- Lunch: </span>Grilled chicken/turkey breast with quinoa and mixed vegetable salad, fresh fruit. <br><span class='bold'>- Snacks: </span>Greek yogurt with walnuts, cucumber and carrot sticks with hummus. <br><span class='bold'>- Dinner: </span>Baked fish with brown rice and steamed broccoli, mixed green salad with olive oil dressing, fruit salad. <br><br>");
+                break;
+            case "no":
+                sendTextMessage("Ok, happy to be help you. Have a great day.<br><br><span class='bold'>Take Care❤ </span><br>");
+                break; 
+            case "diabetes":
+            case "i have diabetes":
+            case "tell me about diabetes":
+            case "tell about diabetes":
+            case "what is diabetes":
+                sendTextMessage("<span class='bold'>Diabetes Mellitus </span>(Major)<br><br><span class='bold'>Description: </span><br> A metabolic disorder characterized by high blood sugar levels resulting from either insufficient insulin production or the body's inability to respond effectively to insulin.<br><br>A blood sugar level less than 140 mg/dL (7.8 mmol/L) is normal. A reading of more than 200 mg/dL (11.1 mmol/L) after two hours means you have diabetes. A reading between 140 and 199 mg/dL (7.8 mmol/L and 11.0 mmol/L) means you have prediabetes.<br> <br><span class='bold'>Symptoms: </span><br>Increased thirst, frequent urination, fatigue, blurred vision, slow wound healing.<span class='bold'></span>");                
+                setTimeout(() => {
+                    sendTextMessage("<span class='bold'>Doctor Recommendation: </span><br><br>You can utilize the link below to consult a doctor for diabetes<br><a href='https://www.practo.com/chennai/doctor/dr-s-ramkumar-endocrinologist-1?practice_id=1158583&specialization=Diabetes&referrer=doctor_listing&page_uid=12ab7857-27cf-49e0-a847-7bfb6ca33a7b&category_name=symptom&category_id=163' target='_blank' rel='noopener noreferrer'>https://www.practo.com/india</a><br>");
+                }, 1000);
+                setTimeout(() => {
+                    sendTextMessage("<span class='bold'> Nutrition Tips:</span><br><br>Monitor carbohydrate intake, consume fiber-rich foods, avoid sugary beverages, and opt for lean protein sources.<br><br>would you like to have a meal plan?<br><br>Example: give <span class='bold'>*Disease name*</span> meal plan<br>");
+                }, 2000);
+                break;
+            case "diabetes meal plan":    
+            case "give diabetes meal plan":
+            case "give me diabetes meal plan":
+            case "can you give me diabetes meal plan":
+            case "can you give diabetes meal plan":
+                sendTextMessage("<span class='bold'>Diabetes Meal Plan: </span><br><br><span class='bold'>- Breakfast: </span>Scrambled tofu with spinach, whole grain toast, mixed berries.<br><span class='bold'>- Lunch: </span>Grilled chicken/tofu with quinoa salad, steamed vegetables, fresh fruit.<br><span class='bold'>- Snacks: </span>Greek yogurt with almonds, carrot and celery sticks with hummus.<br><span class='bold'>- Dinner: </span>Baked salmon with roasted sweet potatoes, sautéed kale, mixed green salad, mixed berries.<br>");
+                break;
+            case "celiac":
+            case "tell about celiac": 
+            case "i have celiac":   
+                sendTextMessage("<span class='bold'>Celiac disease </span>(Major)<br><br><span class='bold'>Description: </span><br>An autoimmune disorder triggered by the ingestion of gluten, leading to damage in the small intestine. <br><br><span class='bold'>Symptoms: </span><br>Digestive issues (abdominal pain, diarrhea, bloating), fatigue, skin rash, and weight loss.<br>");
+                setTimeout(() => {
+                    sendTextMessage("<span class='bold'>Doctor Recommendation: </span><br><br>You can utilize the link below to consult a doctor for celiac disease.<br><a href='https://www.practo.com/chennai/doctor/r-kamalakannan-surgeon?practice_id=837355&specialization=Celiac%20disease&referrer=doctor_listing&page_uid=0961d700-1184-45a5-8dc3-2badc8e3015b&category_name=symptom&category_id=332' target='_blank' rel='noopener noreferrer'>https://www.practo.com/india</a><br>");
+                }, 1000);
+                setTimeout(() => {
+                    sendTextMessage("<span class='bold'> Nutrition Tips: </span><br><br>Strict avoidance of gluten-containing foods, focus on naturally gluten-free grains, fruits, vegetables, and lean proteins <br><br>would you like to have a meal plan?<br><br>Example: give <span class='bold'>*Disease name*</span> meal plan <br>");
+                }, 2000);
+                break;
+            case "celiac meal plan":    
+            case "give celiac meal plan":
+                sendTextMessage("<span class='bold'>Celiac Meal Plan: </span><br><br><span class='bold'>- Breakfast: </span>Gluten-free oats with almond milk and berries, scrambled eggs.<br><span class='bold'>- Lunch: </span>Quinoa salad with mixed vegetables, grilled chicken/tofu, and a vinaigrette dressing.<br><span class='bold'>- Snacks: </span>Rice cakes with peanut butter, sliced cucumber and bell peppers.<br><span class='bold'>- Dinner: </span>Baked salmon with quinoa and steamed vegetables, mixed green salad with olive oil and lemon dressing.<br><br>");
+                break;
+            case "asthma":
+            case "i have asthma":
+                sendTextMessage("<span class='bold'>Asthma </span>(Major)<br><br><span class='bold'>Description: </span><br>A chronic respiratory condition characterized by inflammation and narrowing of the airways, leading to difficulty breathing. <br><br><span class='bold'>Symptoms: </span><br>Wheezing, shortness of breath, chest tightness, coughing, especially at night or early in the morning<br>")
+                setTimeout(() => {
+                    sendTextMessage("<span class='bold'>Doctor Recommendation: </span><br><br>You can utilize the link below to consult a doctor for asthma. <br><a href='https://www.practo.com/chennai/doctor/dr-balamurugan-pulmonologist?practice_id=1144009&specialization=Asthma&referrer=doctor_listing&page_uid=2f2afa77-5e54-4cfa-aaf1-383c6fea2f68&category_name=symptom&category_id=275' target='_blank' rel='noopener noreferrer'>https://www.practo.com/india</a><br>");
+                }, 1000);
+                setTimeout(() => {
+                    sendTextMessage("<span class='bold'> Nutrition Tips: </span><br><br>Consume anti-inflammatory foods (e.g., fruits, vegetables, fatty fish), limit sulfites and preservatives, and maintain a healthy weight. <br><br>would you like to have a meal plan?<br><br>Example: give <span class='bold'>*Disease name*</span> meal plan <br>");
+                }, 2000);
+                break;
+            case "give asthma meal plan":
+                sendTextMessage("<span class='bold'>Asthma Meal Plan: </span><br><br><span class='bold'>- Breakfast: </span>Oatmeal with fruit and nuts. <br><span class='bold'>- Lunch: </span>Grilled chicken salad with avocado. <br><span class='bold'>- Snacks: </span>Greek yogurt with berries. <br><span class='bold'>- Dinner: </span>Baked salmon with quinoa and spinach. <br><br>");
+                break;
+            case "osteoporosis":
+            case "i have osteoporosis":
+                sendTextMessage("<span class='bold'>Osteoporosis</span>(Major)<br><br><span class='bold'>Description: </span><br>A condition characterized by weakened bones, increasing the risk of fractures.<br><br><span class='bold'>Symptoms: </span><br>Bone pain, loss of height over time, stooped posture, fractures (especially in the hip, wrist, or spine).<br>")
+                setTimeout(() => {
+                    sendTextMessage("<span class='bold'>Doctor Recommendation: </span><br><br>You can utilize the link below to consult a doctor for osteoporosis. <br><a href='https://www.practo.com/chennai/doctor/dr-s-s-kumar-orthopedist?practice_id=765571&specialization=Osteoporosis&referrer=doctor_listing&page_uid=813dcdac-9101-442e-9a69-182b170a8d4c&category_name=symptom&category_id=77' target='_blank' rel='noopener noreferrer'>https://www.practo.com/india</a><br>");
+                }, 1000);
+                setTimeout(() => {
+                    sendTextMessage("<span class='bold'> Nutrition Tips: </span><br><br>Ensure adequate calcium and vitamin D intake, consume foods rich in these nutrients, limit caffeine and alcohol. <br><br>would you like to have a meal plan?<br><br>Example: give <span class='bold'>*Disease name*</span> meal plan <br>");
+                }, 2000);
+                break;
+            case "give osteoporosis meal plan":
+                sendTextMessage("<span class='bold'>Osteoporosis Meal Plan: </span><br><br><span class='bold'>- Breakfast: </span>Calcium-fortified cereal with low-fat milk  <br><span class='bold'>- Lunch: </span>Spinach salad with chicken/tofu, pumpkin seeds, and cheese. <br><span class='bold'>- Snacks: </span>Greek yogurt with bananas or hummus with carrots <br><span class='bold'>- Dinner: </span>Baked salmon/sardines, steamed broccoli/kale, quinoa/brown rice <br><br>");
+                break;
+            case "obesity":
+            case "i have obesity":
+                sendTextMessage("<span class='bold'>Obesity </span>(Major)<br><br><span class='bold'>Description: </span><br>Excessive body fat that increases the risk of various health problems.<br><br><span class='bold'>Symptoms: </span><br> Increased body weight, difficulty in physical activity, fatigue, joint pain. <br>");
+                setTimeout(() => {
+                    sendTextMessage("<span class='bold'>Doctor Recommendation: </span><br><br>You can utilize the link below to consult a doctor for obesity <br><a href='https://www.practo.com/chennai/therapist/ms-gomathy-gowthaman-dietitian-nutritionist?practice_id=689319&specialization=Obesity&referrer=doctor_listing&page_uid=74242881-6e53-41db-955f-07e1ca4b4451&category_name=symptom&category_id=209' target='_blank' rel='noopener noreferrer'>https://www.practo.com/india</a><br>");
+                }, 1000);
+                setTimeout(() => {
+                    sendTextMessage("<span class='bold'> Nutrition Tips: </span> <br><br>Focus on portion control, eat plenty of fruits and vegetables, limit sugary beverages and processed foods.<br><br>would you like to have a meal plan?<br><br>Example: give <span class='bold'>*Disease name*</span> meal plan <br>");
+                }, 2000);
+                break;
+            case "give obesity meal plan":
+            case "give me obesity meal plan":
+            case "tell me obesity meal plan":
+            case "obesity meal plan":
+                sendTextMessage("<span class='bold'>Obesity Meal Plan: </span><br><br><span class='bold'>- Breakfast: </span>Oatmeal with berries, Black coffee or green tea. <br><span class='bold'>- Lunch: </span>Grilled chicken or tofu salad,Whole grain roll or brown rice. <br><span class='bold'>- Snacks: </span>Greek yogurt with fruit or veggies with peanut butter. <br><span class='bold'>- Dinner: </span>Baked fish with roasted vegetables,Quinoa or sweet potato. <br><br>");
+                break;
+            case "ckd":
+                sendTextMessage("<span class='bold'>Chronic Kidney Disease (CKD)</span>(Major)<br><br><span class='bold'>Description: </span><br>Progressive loss of kidney function over time. <br><br><span class='bold'>Symptoms: </span><br>Fatigue, swelling in the legs and ankles, changes in urination patterns, nausea. <br>");
+                setTimeout(() => {
+                    sendTextMessage("<span class='bold'>Doctor Recommendation: </span><br><br>You can utilize the link below to consult a doctor for Chronic Kidney Disease <br><a href='https://www.practo.com/chennai/doctor/t-yashwanth-raj-nephrologist?practice_id=1011230&specialization=Chronic%20kidney%20disease%20(%20ckd%20)&referrer=doctor_listing&page_uid=d5e3cd38-2998-4b17-8f1b-db1cab631594&category_name=service&category_id=1209' target='_blank' rel='noopener noreferrer'>https://www.practo.com/india</a><br>");
+                }, 1000);    
+                setTimeout(() => {
+                    sendTextMessage("<span class='bold'> Nutrition Tips: </span><br><br>Monitor protein, phosphorus, potassium, and sodium intake, limit processed foods, and stay hydrated. <br><br>would you like to have a meal plan?<br><br>Example: give <span class='bold'>*Disease name*</span> meal plan <br>");
+                }, 2000);
+                break;
+            case "chronic kidney disease":
+            case "i have chronic kidney disease":
+                sendTextMessage("<span class='bold'>Chronic Kidney Disease (CKD)</span>(Major)<br><br><span class='bold'>Description: </span><br>Progressive loss of kidney function over time. <br><br><span class='bold'>Symptoms: </span><br>Fatigue, swelling in the legs and ankles, changes in urination patterns, nausea. <br>");
+                setTimeout(() => {
+                    sendTextMessage("<span class='bold'>Doctor Recommendation: </span><br><br>You can utilize the link below to consult a doctor for Chronic Kidney Disease <br><a href='https://www.practo.com/chennai/doctor/t-yashwanth-raj-nephrologist?practice_id=1011230&specialization=Chronic%20kidney%20disease%20(%20ckd%20)&referrer=doctor_listing&page_uid=d5e3cd38-2998-4b17-8f1b-db1cab631594&category_name=service&category_id=1209' target='_blank' rel='noopener noreferrer'>https://www.practo.com/india</a><br>");
+                }, 1000);    
+                setTimeout(() => {
+                    sendTextMessage("<span class='bold'> Nutrition Tips: </span><br><br>Monitor protein, phosphorus, potassium, and sodium intake, limit processed foods, and stay hydrated. <br><br>would you like to have a meal plan?<br><br>Example: give <span class='bold'>*Disease name*</span> meal plan <br>");
+                }, 2000);
+                break;    
+            case "give ckd meal plan":
+            case "ckd meal plan":
+                sendTextMessage("<span class='bold'>Chronic Kidney Disease Meal Plan: </span><br><br><span class='bold'>- Breakfast: </span>Green smoothie with spinach, banana, and almond milk,Whole grain toast with avocado.  <br><span class='bold'>- Lunch: </span>Quinoa salad with mixed veggies and lemon-tahini dressing,Hummus with whole grain pita or veggie sticks. <br><span class='bold'>- Snacks: </span>Mixed nuts and seeds,Sliced mango or pineapple. <br><span class='bold'>- Dinner: </span>Lentil and vegetable curry with brown rice,Steamed broccoli or kale. <br><br>");
+                break;
+            case "give chronic kidney disease meal plan":
+            case "chronic kidney disease meal plan":
+                sendTextMessage("<span class='bold'>Chronic Kidney Disease Meal Plan: </span><br><br><span class='bold'>- Breakfast: </span>Green smoothie with spinach, banana, and almond milk,Whole grain toast with avocado.  <br><span class='bold'>- Lunch: </span>Quinoa salad with mixed veggies and lemon-tahini dressing,Hummus with whole grain pita or veggie sticks. <br><span class='bold'>- Snacks: </span>Mixed nuts and seeds,Sliced mango or pineapple. <br><span class='bold'>- Dinner: </span>Lentil and vegetable curry with brown rice,Steamed broccoli or kale. <br><br>");
+                break;    
+            case "heart failure":
+            case "i have heart failure":    
+                sendTextMessage("<span class='bold'>Heart Failure </span>(Major)<br><br><span class='bold'>Description: </span><br>A condition in which the heart is unable to pump enough blood to meet the body's needs. <br><br><span class='bold'>Symptoms: </span><br>Shortness of breath, fatigue, swelling in the legs and ankles, rapid or irregular heartbeat. <br>");
+                setTimeout(() => {
+                    sendTextMessage("<span class='bold'>Doctor Recommendation: </span><br><br>You can utilize the link below to consult a doctor for Heart Failure. <br><a href='https://www.practo.com/chennai/doctor/dr-b-madan-mohan-cardiologist-1?practice_id=1255075&specialization=Heart%20failure&referrer=doctor_listing&page_uid=7071a8b0-1292-466c-a135-f21092eecdd9&category_name=symptom&category_id=765' target='_blank' rel='noopener noreferrer'>https://www.practo.com/india</a><br>");
+                }, 1000);
+                setTimeout(() => {
+                    sendTextMessage("<span class='bold'> Nutrition Tips: </span><br><br> Limit sodium intake, monitor fluid intake, include heart-healthy fats, and focus on nutrient-dense foods. <br><br>would you like to have a meal plan?<br><br>Example: give <span class='bold'>*Disease name*</span> meal plan <br>");
+                }, 2000);
+                break;
+            case "give heart failure meal plan":
+            case "heart failure meal plan":
+                sendTextMessage("<span class='bold'>Heart Failure Meal Plan: </span><br><br><span class='bold'>- Breakfast: </span>Oatmeal with sliced bananas and a sprinkle of cinnamon.  <br><span class='bold'>- Lunch: </span>Grilled chicken salad with mixed greens, tomatoes, and a balsamic vinaigrette dressing. <br><span class='bold'>- Snacks: </span>Greek yogurt with fresh berries. <br><span class='bold'>- Dinner: </span>Baked salmon with steamed asparagus and quinoa. <br><br>");
+                break;
+            case "stroke":
+                sendTextMessage("<span class='bold'>Stroke </span>(Major)<br><br><span class='bold'>Description: </span><br>A sudden interruption of blood flow to the brain, leading to brain cell damage. <br><br><span class='bold'>Symptoms: </span><br>Sudden numbness or weakness of the face, arm, or leg, confusion, trouble speaking or understanding, severe headache. <br>");
+                setTimeout(() => {
+                    sendTextMessage("<span class='bold'>Doctor Recommendation: </span><br><br>You can utilize the link below to consult a doctor for Stroke <br><a href='https://www.practo.com/chennai/doctor/dr-m-kodeeswaran-neurosurgeon?practice_id=678360&specialization=Stroke&referrer=doctor_listing&page_uid=0fc88447-6f9f-445c-a7a5-c1422810b459&category_name=symptom&category_id=45' target='_blank' rel='noopener noreferrer'>https://www.practo.com/india</a><br>");
+                }, 1000);
+                setTimeout(() => {
+                    sendTextMessage("<span class='bold'> Nutrition Tips: </span><br><br>Maintain a healthy weight, limit sodium intake, include foods rich in potassium and magnesium, and consume plenty of fruits and vegetables. <br><br>would you like to have a meal plan?<br><br>Example: give <span class='bold'>*Disease name*</span> meal plan <br>");
+                }, 2000);
+                break;
+            case "give stroke meal plan":
+            case "stroke meal plan":
+                sendTextMessage("<span class='bold'>Stroke Meal Plan: </span><br><br><span class='bold'>- Breakfast: </span> Oatmeal with berries.  <br><span class='bold'>- Lunch: </span>Vegetable stir-fry with tofu and brown rice. <br><span class='bold'>- Snacks: </span>Sliced apples with almond butter. <br><span class='bold'>- Dinner: </span>Quinoa salad with mixed vegetables and chickpeas. <br><br>");
+                break;
+            case "ra":
+                sendTextMessage("<span class='bold'>Rheumatoid Arthritis (RA)</span>(Major)<br><br><span class='bold'>Description: </span><br>An autoimmune disorder that causes chronic inflammation of the joints. <br><br><span class='bold'>Symptoms: </span><br>Joint pain, stiffness, swelling, fatigue, loss of appetite. <br>");
+                setTimeout(() => {
+                    sendTextMessage("<span class='bold'>Doctor Recommendation: </span><br><br>You can utilize the link below to consult a doctor for Rheumatoid Arthritis <br><a href='https://www.practo.com/chennai/doctor/dr-zareen-mohamed-1-allergist-immunologist?practice_id=714258&specialization=Rheumatoid%20arthritis&referrer=doctor_listing&page_uid=a748cdb3-7c7a-4b33-b9ba-2bfc03833899&category_name=symptom&category_id=674' target='_blank' rel='noopener noreferrer'>https://www.practo.com/india</a><br>");
+                }, 1000);
+                setTimeout(() => {
+                    sendTextMessage("<span class='bold'> Nutrition Tips: </span><br><br>Include anti-inflammatory foods, omega-3 fatty acids, and antioxidants, limit processed foods and omega-6 fatty acids. <br><br>would you like to have a meal plan?<br><br>Example: give <span class='bold'>*Disease name*</span> meal plan <br>");
+                }, 2000);
+                break;
+            case "rheumatoid arthritis":
+            case "rheumatoid arthritis disease":
+                sendTextMessage("<span class='bold'>Rheumatoid Arthritis (RA)</span>(Major)<br><br><span class='bold'>Description: </span><br>An autoimmune disorder that causes chronic inflammation of the joints. <br><br><span class='bold'>Symptoms: </span><br>Joint pain, stiffness, swelling, fatigue, loss of appetite. <br>");
+                setTimeout(() => {
+                    sendTextMessage("<span class='bold'>Doctor Recommendation: </span><br><br>You can utilize the link below to consult a doctor for Rheumatoid Arthritis <br><a href='https://www.practo.com/chennai/doctor/dr-zareen-mohamed-1-allergist-immunologist?practice_id=714258&specialization=Rheumatoid%20arthritis&referrer=doctor_listing&page_uid=a748cdb3-7c7a-4b33-b9ba-2bfc03833899&category_name=symptom&category_id=674' target='_blank' rel='noopener noreferrer'>https://www.practo.com/india</a><br>");
+                }, 1000);
+                setTimeout(() => {
+                    sendTextMessage("<span class='bold'> Nutrition Tips: </span><br><br>Include anti-inflammatory foods, omega-3 fatty acids, and antioxidants, limit processed foods and omega-6 fatty acids. <br><br>would you like to have a meal plan?<br><br>Example: give <span class='bold'>*Disease name*</span> meal plan <br>");
+                }, 2000);
+                break;                
+            case "give ra meal plan":
+                sendTextMessage("<span class='bold'>Rheumatoid Arthritis Meal Plan: </span><br><br><span class='bold'>- Breakfast: </span>Smoothie with kale, pineapple, and ginger.  <br><span class='bold'>- Lunch: </span>Mixed green salad with chickpeas, bell peppers, and a turmeric-tahini dressing. <br><span class='bold'>- Snacks: </span>Carrot sticks with hummus. <br><span class='bold'>- Dinner: </span>Stir-fried tofu with broccoli, mushrooms, and brown rice. <br><br>");
+                break;      
+            case "give rheumatoid arthritis meal plan":
+            case "rheumatoid arthritis meal plan":
+            case "can you give me rheumatoid arthritis meal plan":
+                sendTextMessage("<span class='bold'>Rheumatoid Arthritis Meal Plan: </span><br><br><span class='bold'>- Breakfast: </span>Smoothie with kale, pineapple, and ginger.  <br><span class='bold'>- Lunch: </span>Mixed green salad with chickpeas, bell peppers, and a turmeric-tahini dressing. <br><span class='bold'>- Snacks: </span>Carrot sticks with hummus. <br><span class='bold'>- Dinner: </span>Stir-fried tofu with broccoli, mushrooms, and brown rice. <br><br>");
+                break;
+            case "cold":
+            case "common cold":
+                sendTextMessage("<span class='bold'>Common Cold </span>(Minor)<br><br><span class='bold'>Description: </span><br>A viral infection affecting the upper respiratory tract. <br><br><span class='bold'>Symptoms: </span><br>Runny or stuffy nose, sore throat, coughing, sneezing, mild fatigue. <br>");
+                setTimeout(() => {
+                    sendTextMessage("<span class='bold'>Doctor Recommendation: </span><br><br>You can utilize the link below to consult a doctor for Common Cold <br><a href='https://www.practo.com/chennai/doctor/thomas-george-1-general-physician?practice_id=1255075&specialization=Colds&referrer=doctor_listing&page_uid=34032f2f-f698-4a34-b2ae-c4702351fe02&category_name=symptom&category_id=1034' target='_blank' rel='noopener noreferrer'>https://www.practo.com/india</a><br>");
+                }, 1000);
+                setTimeout(() => {
+                    sendTextMessage("<span class='bold'> Nutrition Tips: </span><br><br>Increase intake of vitamin C-rich foods like citrus fruits, bell peppers, and broccoli. Stay hydrated with water and warm fluids. <br><br>would you like to have a meal plan?<br><br>Example: give <span class='bold'>*Disease name*</span> meal plan <br>");
+                }, 2000);
+                break;
+            case "give cold meal plan":
+            case "can you give me cold meal plan":
+                sendTextMessage("<span class='bold'>Common Cold Meal Plan: </span><br><br><span class='bold'>- Breakfast: </span>Oatmeal with sliced strawberries and a glass of orange juice.  <br><span class='bold'>- Lunch: </span>Chicken noodle soup with whole grain bread and a side salad. <br><span class='bold'>- Snacks: </span>Turmeric Milk: Warm up a glass of milk (or a dairy-free alternative) with a pinch of turmeric and honey for its anti-inflammatory properties. <br><span class='bold'>- Dinner: </span>Baked salmon with steamed vegetables and quinoa. <br><br>");
+                break;
+            case "gerd":
+            case "acid reflux":    
+            case "acidity":
+                sendTextMessage("<span class='bold'>Gastroesophageal Reflux Disease (Acid Reflux) </span>(Minor)<br><br><span class='bold'>Description: </span><br>Stomach acid backing up into the esophagus. <br><br><span class='bold'>Symptoms: </span><br>Heartburn, regurgitation, bloating, nausea. <br>");
+                setTimeout(() => {
+                    sendTextMessage("<span class='bold'>Doctor Recommendation: </span><br><br>You can utilize the link below to consult a doctor for Acid Reflux <br><a href='https://www.practo.com/chennai/doctor/dr-s-arul-prakash?practice_id=1255075&specialization=Gastroesophageal%20reflux&referrer=doctor_listing&page_uid=9b9b593d-3ce4-4e2c-8603-92b93f0782ce&category_name=symptom&category_id=481' target='_blank' rel='noopener noreferrer'>https://www.practo.com/india</a><br>");
+                }, 1000);
+                setTimeout(() => {
+                    sendTextMessage("<span class='bold'> Nutrition Tips: </span><br><br>Avoid spicy, acidic, and fatty foods. Eat smaller, more frequent meals. <br><br>would you like to have a meal plan?<br><br>Example: give <span class='bold'>*Disease name*</span> meal plan <br>");
+                }, 2000);
+                break;
+            case "give acid reflux meal plan":
+            case "gerd meal plan":
+            case "acid reflux meal plan":
+            case "give gerd meal plan":
+                sendTextMessage("<span class='bold'>Acid Reflux Meal Plan: </span><br><br><span class='bold'>- Breakfast: </span>Oatmeal with sliced bananas and almond milk.  <br><span class='bold'>- Lunch: </span>Grilled chicken breast with quinoa and steamed vegetables. <br><span class='bold'>- Snacks: </span>Rice cakes with almond butter. <br><span class='bold'>- Dinner: </span>Baked fish with roasted sweet potatoes and asparagus. <br><br>");
+                break;
+            case "sinus":
+                sendTextMessage("<span class='bold'>Sinusitis </span>(Minor)<br><br><span class='bold'>Description: </span><br>Inflammation of the sinuses often caused by viral or bacterial infection. <br><br><span class='bold'>Symptoms: </span><br>Facial pain or pressure, congestion, headache, fatigue. <br>");
+                setTimeout(() => {
+                    sendTextMessage("<span class='bold'>Doctor Recommendation: </span><br><br>You can utilize the link below to consult a doctor for Sinusitis. <br><a href='https://www.practo.com/chennai/doctor/thomas-george-1-general-physician?practice_id=1255075&specialization=Sinusitis&referrer=doctor_listing&page_uid=abfa7718-2548-473e-b292-5af08a00e5be&category_name=symptom&category_id=297' target='_blank' rel='noopener noreferrer'>https://www.practo.com/india</a><br>");
+                }, 1000);
+                setTimeout(() => {
+                    sendTextMessage("<span class='bold'> Nutrition Tips: </span><br><br> Increase intake of spicy foods like horseradish or chili peppers to help clear sinuses. <br><br>would you like to have a meal plan?<br><br>Example: give <span class='bold'>*Disease name*</span> meal plan <br>");
+                }, 2000);
+                break;
+            case "sinus meal plan":     
+            case "give sinus meal plan":
+            case "can you give sinus meal plan":
+            case "can you give me sinus meal plan":
+                sendTextMessage("<span class='bold'>Sinusitis Meal Plan: </span><br><br><span class='bold'>- Breakfast: </span>Scrambled eggs with sautéed spinach and whole grain toast.  <br><span class='bold'>- Lunch: </span>Lentil soup with a side of mixed greens. <br><span class='bold'>- Snacks: </span>Sliced apple with almond butter. <br><span class='bold'>- Dinner: </span>Turkey chili with beans, tomatoes, and a green salad. <br><br>");
+                break; 
+            case "athlete foot":
+                sendTextMessage("<span class='bold'>Athlete's Foot </span>(Minor)<br><br><span class='bold'>Description: </span><br> Fungal infection causing itching and peeling between the toes. <br><br><span class='bold'>Symptoms: </span><br>Itching, burning, cracked skin, redness. <br>");
+                setTimeout(() => {
+                    sendTextMessage("<span class='bold'>Doctor Recommendation: </span><br><br>You can utilize the link below to consult a doctor for Athlete's Foot. <br><a href='https://www.practo.com/chennai/doctor/dr-jyothsna-2-dermatologist-dermatologist?practice_id=1062980&specialization=Athlete%27s%20foot&referrer=doctor_listing&page_uid=f417c6ba-d0c8-445f-813f-1059f41442df&category_name=symptom&category_id=182' target='_blank' rel='noopener noreferrer'>https://www.practo.com/india</a><br>");
+                }, 1000);
+                setTimeout(() => {
+                    sendTextMessage("<span class='bold'> Nutrition Tips: </span><br><br>Avoid excessive sugar intake, as fungi thrive on sugar. Consume probiotic-rich foods like yogurt to promote healthy gut flora. <br><br>would you like to have a meal plan?<br><br>Example: give <span class='bold'>*Disease name*</span> meal plan <br>");
+                }, 2000);
+                break;
+            case "give athlete foot meal plan":
+            case "athlete foot meal plan":
+                sendTextMessage("<span class='bold'>Athlete's Foot Meal Plan: </span><br><br><span class='bold'>- Breakfast: </span>Smoothie with spinach, berries, and kefir.  <br><span class='bold'>- Lunch: </span>Grilled salmon with steamed broccoli and brown rice. <br><span class='bold'>- Snacks: </span>Sliced cucumber with hummus. <br><span class='bold'>- Dinner: </span>Vegetable stir-fry with tofu and whole wheat noodles. <br><br>");
+                break;
+            case "insomnia":
+                sendTextMessage("<span class='bold'>Insomnia </span>(Minor)<br><br><span class='bold'>Description: </span><br>Difficulty falling asleep or staying asleep. <br><br><span class='bold'>Symptoms: </span><br>Difficulty falling asleep, waking up frequently during the night, daytime fatigue. <br>");
+                setTimeout(() => {
+                    sendTextMessage("<span class='bold'>Doctor Recommendation: </span><br><br>You can utilize the link below to consult a doctor for Insomnia. <br><a href='https://www.practo.com/chennai/therapist/dr-hema-karthik-psychologist?practice_id=1109356&specialization=Insomnia&referrer=doctor_listing&page_uid=95f35cc1-038e-428b-aa43-197bae6cf9de&category_name=symptom&category_id=270' target='_blank' rel='noopener noreferrer'>https://www.practo.com/india</a><br>");
+                }, 1000);
+                setTimeout(() => {
+                    sendTextMessage("<span class='bold'> Nutrition Tips: </span><br><br>Limit caffeine and alcohol intake, especially in the evening. Consume foods rich in magnesium and tryptophan, like nuts, seeds, and turkey. <br><br>would you like to have a meal plan?<br><br>Example: give <span class='bold'>*Disease name*</span> meal plan <br>");
+                }, 2000);
+                break;
+            case "insomnia meal plan":    
+            case "give insomnia meal plan":
+            case "can you give insomnia meal plan":
+                sendTextMessage("<span class='bold'>Insomnia Meal Plan: </span><br><br><span class='bold'>- Breakfast: </span>Greek yogurt with granola and mixed berries.  <br><span class='bold'>- Lunch: </span>Quinoa and black bean salad with avocado and lime dressing. <br><span class='bold'>- Snacks: </span>Whole grain crackers with cheese. <br><span class='bold'>- Dinner: </span>Grilled salmon with roasted sweet potatoes and steamed broccoli. <br><br>");
+                break;
+            case "migraine":
+                sendTextMessage("<span class='bold'>Migraine </span>(Minor)<br><br><span class='bold'>Description: </span><br>Recurring headaches that can cause moderate to severe throbbing pain, often accompanied by other symptoms. <br><br><span class='bold'>Symptoms: </span><br>Intense headache, nausea, vomiting, sensitivity to light and sound, visual disturbances (auras). <br>");
+                setTimeout(() => {
+                    sendTextMessage("<span class='bold'>Doctor Recommendation: </span><br><br>You can utilize the link below to consult a doctor for Migraine <br><a href='https://www.practo.com/chennai/doctor/dr-t-vijay-neurologist?practice_id=1277360&specialization=Migraine&referrer=doctor_listing&page_uid=cb5683ef-f05d-4e05-baf2-d54edb6f3447&category_name=symptom&category_id=1240' target='_blank' rel='noopener noreferrer'>https://www.practo.com/india</a><br>");
+                }, 1000);
+                setTimeout(() => {
+                    sendTextMessage("<span class='bold'> Nutrition Tips: </span><br><br> Identify and avoid trigger foods (e.g., aged cheese, processed meats, alcohol), stay hydrated, maintain regular meal times. <br><br>would you like to have a meal plan?<br><br>Example: give <span class='bold'>*Disease name*</span> meal plan <br>");
+                }, 2000);
+                break;
+            case "migraine meal plan":    
+            case "give migraine meal plan":
+            case "can you give migraine meal plan":
+                sendTextMessage("<span class='bold'>Migraine Meal Plan: </span><br><br><span class='bold'>- Breakfast: </span>Oatmeal with almond milk, berries, and a side of sliced avocado.  <br><span class='bold'>- Lunch: </span>Quinoa salad with mixed greens, grilled salmon, and a lemon-tahini dressing. <br><span class='bold'>- Snacks: </span>Greek yogurt with honey and a handful of almonds. <br><span class='bold'>- Dinner: </span>Baked chicken breast with roasted sweet potatoes and steamed broccoli. <br><br>");
+                break;        
+            
+            
+            // Nutrition Tips
+            case "nutrition tips":
+                setTimeout(() => {
+                    sendTextMessage("<span class='bold'>Nutrition Tips: </span><br><br> Identify and avoid trigger foods (e.g., aged cheese, processed meats, alcohol), stay hydrated, maintain regular meal times. <br><br>would you like to have a meal plan?<br><br>Example: give <span class='bold'>*Disease name*</span> meal plan <br>");
+                }, 1000);
+                break;
+                
+            case "migraine nutrition tips":
+            case "give migraine nutrition tips":
+            case "give me migraine nutrition tips":
+                setTimeout(() => {
+                    sendTextMessage("<span class='bold'>Migraine Nutrition Tips: </span><br><br> Identify and avoid trigger foods (e.g., aged cheese, processed meats, alcohol), stay hydrated, maintain regular meal times. <br><br>would you like to have a meal plan?<br><br>Example: give <span class='bold'>*Disease name*</span> meal plan <br>");
+                }, 1000);
+                break;
+            case "diabetes nutrition tips":
+            case "give diabetes nutrition tips":
+            case "give me diabetes nutrition tips":
+            case "can you give me diabetes nutrition tips":
+            case "tell me about diabetes nutrition tips":
+            case "tell about diabetes nutrition tips":
+            case "i would like to have diabetes nutrition tips":
+                setTimeout(() => {
+                    sendTextMessage("<span class='bold'>Diabetes Nutrition Tips:</span><br><br>Monitor carbohydrate intake, consume fiber-rich foods, avoid sugary beverages, and opt for lean protein sources.<br><br>would you like to have a meal plan?<br><br>Example: give <span class='bold'>*Disease name*</span> meal plan<br>");
+                }, 1000);
+                break;
+            case "obesity nutrition tips":
+            case "give obesity nutrition tips":
+            case "give me obesity nutrition tips":
+            case "tell about obesity nutrition tips":
+            case "tell me about obesity nutrition tips":
+            case "i would like to have obesity nutrition tips":
+            case "i would like to know about obesity nutrition tips":
+                setTimeout(() => {
+                    sendTextMessage("<span class='bold'>Obesity Nutrition Tips: </span> <br><br>Focus on portion control, eat plenty of fruits and vegetables, limit sugary beverages and processed foods.<br><br>would you like to have a meal plan?<br><br>Example: give <span class='bold'>*Disease name*</span> meal plan <br>");
+                }, 1000);
+                break;        
+
+            // Meal Plan 
+            case "meal plan":
+                setTimeout(() => {
+                    sendTextMessage("<span class='bold'> Meal Plan </span><br><br>Mention your preference in meal plan.To get a specific meal plan.Meal Plan available for <br><br><span class='bold'>1.Vegan</span><br><span class='bold'>2.Vegetarian</span><br><span class='bold'>3.Non Vegetarian</span> <br><br>Example: give <span class='bold'>*Disease name*</span> meal plan <br>");
+                }, 1000);
+                break;
+            // Vegan Meal Plan
+            case "vegan meal":
+            case "vegan meal plan":
+                sendTextMessage("<span class='bold'>Vegan Meal Plan: </span><br><br><span class='bold'>- Breakfast: </span>Oatmeal with almond milk, sliced strawberries, and a sprinkle of cinnamon.  <br><span class='bold'>- Lunch: </span>Grilled tofu with quinoa and mixed greens. <br><span class='bold'>- Snacks: </span>Carrot sticks with hummus. <br><span class='bold'>- Dinner: </span>Chickpea curry with brown rice and steamed vegetables. <br><br>");
+                break;
+
+            case "diabetes vegan meal plan":
+            case "give diabetes vegan meal plan":
+            case "give me diabetes vegan meal plan":
+            case "give vegan meal plan for diabetes":
+            case "vegan meal plan for diabetes":
+                sendTextMessage("<span class='bold'>Diabetes Meal Plan (Vegan): </span><br><br><span class='bold'>- Breakfast: </span>Oatmeal with almond milk, sliced strawberries, and a sprinkle of cinnamon.  <br><span class='bold'>- Lunch: </span>Grilled tofu with quinoa and mixed greens. <br><span class='bold'>- Snacks: </span>Carrot sticks with hummus. <br><span class='bold'>- Dinner: </span>Chickpea curry with brown rice and steamed vegetables. <br><br>");
+                break;
+
+
+
+            // Vegetarian Meal Plan
+            case "vegetarian meal":
+            case "vegetarian meal plan":
+                sendTextMessage("<span class='bold'>Vegetarian Meal Plan: </span><br><br><span class='bold'>- Breakfast: </span>Milk with whole grain toast and sliced apples.  <br><span class='bold'>- Lunch: </span>Chickpea curry with whole wheat roti. <br><span class='bold'>- Snacks: </span>Celery sticks with hummus. <br><span class='bold'>- Dinner: </span>Baked eggplant with tomato and onion masala. <br><br>");
+                break;
+
+            case "diabetes vegetarian meal plan":
+            case "give diabetes vegetarian meal plan":
+            case "give me diabetes vegetarian meal plan":
+            case "give vegetarian meal plan for diabetes":
+            case "vegetarian meal plan for diabetes":
+                sendTextMessage("<span class='bold'>Diabetes Meal Plan (Veg): </span><br><br><span class='bold'>- Breakfast: </span>Methi (fenugreek) seeds soaked overnight in water with whole grain toast.  <br><span class='bold'>- Lunch: </span>Bitter gourd curry with chapati and cucumber salad. <br><span class='bold'>- Snacks: </span>Sprouts salad with lemon juice. <br><span class='bold'>- Dinner: </span>Tofu tikka masala with brown rice. <br><br>");
+                break; 
+
+            // Non-Vegetarian Meal Plan
+            case "non vegetarian meal plan":
+            case "give diabetes non Vegetarian meal plan":
+            case "diabetes non vegetarian meal plan":
+            case "give me diabetes non vegetarian meal plan":
+            case "give non vegetarian meal plan for diabetes":
+            case "non vegetarian meal plan for diabetes":
+                sendTextMessage("<span class='bold'>Diabetes Meal Plan (Non-Veg): </span><br><br><span class='bold'>- Breakfast: </span>Turkey sausage with scrambled eggs and whole grain toast.  <br><span class='bold'>- Lunch: </span>Grilled chicken breast with quinoa and mixed greens. <br><span class='bold'>- Snacks: </span>Greek yogurt with mixed berries and almonds. <br><span class='bold'>- Dinner: </span>Baked fish with roasted vegetables and a small portion of brown rice. <br><br>");
+                break;
+
+            case "clear":
+                clearChat();
+                break;
+            // case "about":
+    
+
+            case "input":
+                setTimeout(() => {
+                    sendTextMessage("Hello "+name+"! How are you?");
+                }, 1000);
+                break;
+            //     break;
+            
+            
+            case "time":
+                var date = new Date();
+                sendTextMessage("Now the time is " + date.getHours() + ":" + date.getMinutes());
+                break;
+    
+            case "date":
+                var date = new Date();
+                sendTextMessage("Current date is " + date.getDate() + "/" + date.getMonth() + "/" + date.getFullYear());
+                break;
+    
+            case "hai":
+                sendTextMessage("Hello there 👋🏻");
+                
+                setTimeout(() => {
+                    sendTextMessage("How can i help you?");
+                }, 1000);
+                break;
+
+            case "hello medibot":
+                sendTextMessage("Hello there 👋🏻");
+                setTimeout(() => {
+                    sendTextMessage("How can i help you?");
+                }, 1000);
+                break;
+
+            case "what is your name":
+            case "what is your name?":    
+            case "tell me your name":
+            case "tell me your name?":
+                sendTextMessage("My name is MEDIBOT..😊");    
+                setTimeout(() => {
+                    sendTextMessage("How can i help you?");
+                }, 1000);
+                break;
+            case "ok":
+            case "okay":
+            case "k":
+                sendTextMessage("If you have any questions related a specific disease you'd like information on, feel free to let me know!😊");
+                break;    
+
+            default:
+                setTimeout(() => {
+                    sendTextMessage("Hey I couldn't catch you...😢<br>Send 'help' to know more about usage.");
+                }, 2000);
+                break;
+        }
+    
+    
+    
+    }
+    
+    
+    function clearChat() {
+        document.getElementById("listUL").innerHTML = "";
+        waitAndResponce('intro');
+    }
+    
+    
+    
+    function sendTextMessage(textToSend) {
+        setTimeout(setLastSeen, 1000);
+        var date = new Date();
+        var myLI = document.createElement("li");
+        var myDiv = document.createElement("div");
+        var greendiv = document.createElement("div");
+        var dateLabel = document.createElement("label");
+        dateLabel.setAttribute("id", "sentlabel");
+        dateLabel.id = "sentlabel";
+        dateLabel.innerText = date.getHours() + ":" + date.getMinutes();
+        myDiv.setAttribute("class", "received");
+        greendiv.setAttribute("class", "grey");
+        greendiv.innerHTML = textToSend;
+        myDiv.appendChild(greendiv);
+        myLI.appendChild(myDiv);
+        greendiv.appendChild(dateLabel);
+        document.getElementById("listUL").appendChild(myLI);
+        var s = document.getElementById("chatting");
+        s.scrollTop = s.scrollHeight;
+        playSound();
+    }
+    
+    
+    function sendResponse() {
+        setTimeout(setLastSeen, 1000);
+        var date = new Date();
+        var myLI = document.createElement("li");
+        var myDiv = document.createElement("div");
+        var greendiv = document.createElement("div");
+        var dateLabel = document.createElement("label");
+        dateLabel.innerText = date.getHours() + ":" + date.getMinutes();
+        myDiv.setAttribute("class", "received");
+        greendiv.setAttribute("class", "grey");
+        dateLabel.setAttribute("class", "dateLabel");
+        greendiv.innerText = "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum. ";
+        myDiv.appendChild(greendiv);
+        myLI.appendChild(myDiv);
+        greendiv.appendChild(dateLabel);
+        document.getElementById("listUL").appendChild(myLI);
+        var s = document.getElementById("chatting");
+        s.scrollTop = s.scrollHeight;
+        playSound();
+    }
+    
+    function playSound() {
+        audio.play();
+    }
+    
+</script>
+
+</body>
+
+</html>
